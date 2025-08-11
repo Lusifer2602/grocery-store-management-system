@@ -1,0 +1,15 @@
+Here's a list of all the benifits you are gonna get from working on this project
+
+For Devs:
+You'll learn how several parts of a technology work in building an app - 
+Learn system architecture (for CLI, GUI, Web based platforms)
+python(with several libs applied to the app), sql, html, css, js, htmx, deployment, server handling, encryption, framework, encryption, data management
+If shit goes well we might as well develop a cross platform for mobile
+
+For Manager:
+You'll learn what it is like to work in team and manage them
+How to assign and track a bunch of tasks efficiently without creating a mess
+how to resolve conflicts between team if situation arises
+how to keep track of when a task was done and by whom
+to handle all the devs in an organised manner so the entire shit doesn't collapse on its face
+
