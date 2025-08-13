@@ -48,3 +48,4 @@ GUI - Python, mysql
 Web - PostgreSQL, js, html, cs, python (Home Server)
 
 Excalidraw Session link - https://excalidraw.com/#room=45a70e91aaec85403b82,mCJKopL4Wfu7WOkEqCEJvw
+Issue:- Already a customre
