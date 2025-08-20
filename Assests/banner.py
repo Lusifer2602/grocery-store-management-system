@@ -8,5 +8,3 @@ print_banner("Grocery Management System")
 
 typing_effect("Welcome to Grocery Store CLI Project", 0.05)
 
-center_input("Press Enter to continue...")
-sys.exit()
