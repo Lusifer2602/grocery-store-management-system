@@ -1,8 +1,10 @@
+# Module Area
 import sys
 import time
 import pyfiglet
 import shutil
 import os
+# Function Area
 
 def typing_effect(text, delay=0.05):
     for char in text:
@@ -16,9 +18,12 @@ def print_banner(text):
     for line in banner.split("\n"):
         print(line.center(columns))
 
+
+# Code Area
+
 os.system("cls")
 
-print_banner("NEW   USER")
+print_banner("NEW   USER") 
 
 typing_effect("Press Enter to Continue.....", 0.05)
 input()
@@ -38,6 +43,13 @@ while True:
     else:
         break
 os.system("cls")
+hii_msg = f'Hi {new_user_name}\n'
+info = f"""
+Name > {new_user_name} 
+Email > {new_user_email}
+Password > {new_user_pass} """
 
-typing_effect(f"Hi {new_user_name}",0.05)
-typing_effect(f"Please Verify the Information:- ")
+typing_effect(hii_msg,0.05)
+typing_effect("Please Verify the Information:-",0.05)
+typing_effect(info,0.06)
+
