@@ -1,6 +1,20 @@
-import os
-from function import typing_effect,print_banner
 import sys
+import time
+import pyfiglet
+import shutil
+import os
+
+def typing_effect(text, delay=0.05):
+    for char in text:
+        sys.stdout.write(char)   
+        sys.stdout.flush()       
+        time.sleep(delay) 
+
+def print_banner(text):
+    columns = shutil.get_terminal_size().columns
+    banner = pyfiglet.figlet_format(text)
+    for line in banner.split("\n"):
+        print(line.center(columns))
 
 os.system("cls")
 
