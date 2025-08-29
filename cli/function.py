@@ -30,7 +30,7 @@ def sign_in ():
     new_user_name = input("Enter your Name\n:")
     while True:
         new_user_email = input("Enter you Email \n:")
-        if new_user_email.endswith("@gmail.com"):
+        if new_user_email.endswith("@gmail.com") and len(new_user_email)>len("@gmail.com"):
             break
         else:
                 print("Please Enter Valid Email....")
@@ -51,4 +51,36 @@ def sign_in ():
     typing_effect("Please Verify the Information:-",0.05)
     typing_effect(info,0.06)
     return [new_user_email,new_user_name,new_user_pass]
+# User_login page
+def user_login():
+    print_banner("GROCERRY MANAGMENT SYSTEM")
+    typing_effect("Welcome.....")
+    print("\n")
+    msg = """Hii Please select From given options:--
+1. Admin Login
+2. Sign In 
+3. Log In 
+4. Exit
+"""
+    typing_effect(msg,0.06)
+    while True:
+        opt = int(input(":"))
+        if opt ==1:
+            # admin_pg()
+            print("admin page temp....")
+            break
+        elif opt == 2:
+            sign_in()
+            break
+        elif opt ==3:
+            # log_in()
+            print("Log in page temp......")
+            break
+        elif opt == 4:
+            typing_effect("Thanks for using our app ")
+            print("\n")
+            typing_effect("Press enter to exit")
 
+        else:
+            typing_effect("Please enter correct options......")
+            print("\n")
