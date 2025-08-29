@@ -66,15 +66,16 @@ def user_login():
     while True:
         opt = int(input(":"))
         if opt ==1:
-            # admin_pg()
-            print("admin page temp....")
+            os.system("cls")
+            admin_login()
             break
         elif opt == 2:
+            os.system("cls")
             sign_in()
             break
         elif opt ==3:
-            # log_in()
-            print("Log in page temp......")
+            os.system("cls")
+            log_in()
             break
         elif opt == 4:
             typing_effect("Thanks for using our app ")
@@ -84,3 +85,29 @@ def user_login():
         else:
             typing_effect("Please enter correct options......")
             print("\n")
+
+
+def admin_login():
+    print_banner("ADMIN")
+    typing_effect("Hii, Sir Please Enter you id and password for login")
+    print("\n")
+    print("This is for only testing purpose  id:- abc pass:-2345")
+    while True:
+        typing_effect("Enter your ID:---\n",0.06)
+        admin_id = input(":")
+        typing_effect("Enter your PASS:---\n",0.06)
+        admin_pass = input(":")
+        if admin_id == "abc" and admin_pass == "2345":
+            print("Welcome.., Press Enter to Continue")
+            input()
+            # admin_pg()
+            break
+        else:
+            print("Wrong ID and PASS please try again ")
+
+def log_in():
+    print_banner("LOGIN")
+    typing_effect("Hi, Welcome Back..")
+
+    print("Please Enter Login Id & Pass")
+    input("Enter to exit for now")
