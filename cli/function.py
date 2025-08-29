@@ -17,9 +17,7 @@ def print_banner(text):
     banner = pyfiglet.figlet_format(text)
     for line in banner.split("\n"):
         print(line.center(columns))
-
-
-# Code Area
+# sign in page 
 def sign_in ():
     os.system("cls")
 
@@ -53,3 +51,4 @@ def sign_in ():
     typing_effect("Please Verify the Information:-",0.05)
     typing_effect(info,0.06)
     return [new_user_email,new_user_name,new_user_pass]
+
