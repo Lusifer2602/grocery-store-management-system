@@ -81,6 +81,8 @@ def user_login():
             typing_effect("Thanks for using our app ")
             print("\n")
             typing_effect("Press enter to exit")
+            input()
+            break
 
         else:
             typing_effect("Please enter correct options......")
