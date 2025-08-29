@@ -9,6 +9,5 @@ msg = """Hii Please select From given options:--
 """
 typing_effect(msg,0.06)
 opt = int(input(":"))
-while True:
-    if opt ==1:
-        sign_in()
+if opt ==1:
+    sign_in()
