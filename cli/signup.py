@@ -4,6 +4,7 @@ import time
 import pyfiglet
 import shutil
 import os
+userdata=None
 def typing_effect(text, delay=0.05):
     for char in text:
         sys.stdout.write(char)   
@@ -19,6 +20,7 @@ con=sq.connect('info.db')
 c=con.cursor()
 
 def signup():
+    global userdata
     os.system("clear")
 
     print_banner("Sign Up for\nNew Account") 
@@ -40,11 +42,6 @@ def signup():
             print("Please Enter Atleast 8 Characters ")
         else:
             break
-        repass=input("Re-Enter your Password : ")
-        while True:
-            if passw==repass:
-                break
-            else: print("Passwords don't match try again : ")
 
     os.system("clear")
     hii_msg = f'Hi {new_user_name}\n'
@@ -57,14 +54,14 @@ def signup():
     typing_effect("Please Verify Your Information : \n",0.05)
     typing_effect(info,0.04)
     choice=input("\nEnter 'y' if the information is correct\nand 'n' to re-setup your account : ").lower()
-    if choice=='y' or choice === 'yes':
-    c.execute("""CREATE TABLE IF NOT EXISTS users(
+    if choice=='y' or choice == 'yes':
+        c.execute("""CREATE TABLE IF NOT EXISTS users(
               name TEXT,
-              mail text PRIMARY,
+              mail text PRIMARY KEY,
               passw 
               )""")
-        return [new_user_email,new_user_name,passw]
-
-
-
-# User_login page
+        print("User Added Succesfully!")
+        #now start a session from the same id 
+    userdata=[new_user_email, new_user_name, passw]
+    return [new_user_email,new_user_name,passw]
+signup()
