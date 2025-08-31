@@ -47,5 +47,11 @@ CLI - Python, mysql
 GUI - Python, mysql
 Web - PostgreSQL, js, html, cs, python (Home Server)
 
+CLI update
+we were going the functional programming approach but it turns out I had forgotten you can't store values inside a function outside of it
+Earlier we were thinking we could just create functions for each step and call them one by one but it turns out this is not the case (BECAUSE I FUCKING FORGOT)
+So as it turns out i will now be coding the entire shit into one file without calling functions for each part, I wish that was a thing but anyways lol
+
+
 Excalidraw Session link - https://excalidraw.com/#room=45a70e91aaec85403b82,mCJKopL4Wfu7WOkEqCEJvw
 Issue:- Already a customre
