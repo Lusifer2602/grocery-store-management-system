@@ -6,21 +6,11 @@ import shutil
 import os
 import bcrypt as bcr
 import time
+from functions import *
 con=sq.connect('info.db')
 c=con.cursor()
 
-userdata=None
-def typing_effect(text, delay=0.03):
-    for char in text:
-        sys.stdout.write(char)   
-        sys.stdout.flush()       
-        time.sleep(delay) 
-
-def print_banner(text):
-    columns = shutil.get_terminal_size().columns
-    banner = pyfiglet.figlet_format(text)
-    for line in banner.split("\n"):
-        print(line.center(columns))
+userdata=None #to later store and start a user's session for their purchase, etc
 
 os.system("clear")
 print_banner("Login To Your\nAccount")
@@ -37,7 +27,7 @@ def login():
             c.execute("SELECT passw FROM users WHERE mail=?", (mail,))
             auth=c.fetchone()
             hashed=auth[0]
-
+            
             if bcr.checkpw(passw.encode('utf-8'), hashed): #for checking password
                 print("LOGIN SUCCESSFUL ! ! !")
                 c.execute("SELECT name FROM users WHERE mail=?", (mail,))
