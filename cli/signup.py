@@ -6,19 +6,9 @@ import shutil
 import os
 import bcrypt as bcr
 import time
+from functions import *
 
 userdata=None
-def typing_effect(text, delay=0.03):
-    for char in text:
-        sys.stdout.write(char)   
-        sys.stdout.flush()       
-        time.sleep(delay) 
-
-def print_banner(text):
-    columns = shutil.get_terminal_size().columns
-    banner = pyfiglet.figlet_format(text)
-    for line in banner.split("\n"):
-        print(line.center(columns))
 con=sq.connect('info.db')
 c=con.cursor()
 
