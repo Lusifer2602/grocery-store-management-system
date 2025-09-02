@@ -10,7 +10,6 @@ from functions import *
 
 con=sq.connect("info.db")
 c=con.cursor()
-clrscr()
 def additems():
     while True:
         try:
@@ -19,16 +18,20 @@ def additems():
             if itemname=='q':
                 break
             itemprice=float(input("Price : "))
-            if itemprice==404:
-                break
 
             c.execute("INSERT OR REPLACE INTO items (item, price) VALUES (?, ?)", (itemname, itemprice))
             #INSERT OR REPLACE LOOKS UP IF THE VALUE ALREADY EXISTS AND THEN DELETS IT AND THEN INSERTS A NEW ONE TO THE SAME TABLE
             con.commit()
+        except ValueError:
+            print("\nStr in price detected, exiting adding items")
+            time.sleep(1)
+            clrscr()
+            break
         except Exception as e:
             print("Error : ", e)
             break
-def delitems():
+
+def delitems(): #for admin
     typing_effect("Enter 1 if you want to delete name by name\n"
              "2 if you want to delete all the items at once : ")
     delchoice=int(input(""))
@@ -51,13 +54,13 @@ def delitems():
             c.execute("DELETE FROM items")
             con.commit()
             time.sleep(1)
-            typing_effect("All items have beeen deleted successfully")
+            typing_effect("All items have beeen deleted successfully\n")
         except Exception as e:
             print("error :", e)
     else:
         print("invalid input")
 
-def showitems():
+def showitems(): #for both users and admin
     #indent here        
     c.execute("SELECT * FROM items")
     saman=c.fetchall()
@@ -66,10 +69,10 @@ def showitems():
     for rows in saman:
         print(rows[0]," ", rows[1], rows[2])
     print('\n')
-     
 
-
+#call this one for admin
 def items():
+    clrscr()
     print_banner("What do you want to do about the list")        
     c.execute("""CREATE TABLE IF NOT EXISTS items(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -103,6 +106,6 @@ def items():
             clrscr()
             break
         else:
-            print("invalid input")
-        clrscr()
+            print("invalid input try again")
+
 items()
