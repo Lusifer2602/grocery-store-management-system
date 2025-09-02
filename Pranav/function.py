@@ -127,6 +127,7 @@ def admin_page():
 def sign_in ():
     clear_screen()
     print_banner("NEW   USER") 
+
     typing_effect("Press Enter to Continue.....", 0.05)
     input()
     clear_screen()
