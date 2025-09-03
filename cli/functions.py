@@ -6,6 +6,9 @@ import os
 import bcrypt
 import sqlite3 as sq
 
+con=sq.connect('info.db')
+c=con.cursor()
+
 def typing_effect(text, delay=0.05):
     for char in text:
         sys.stdout.write(char)   
@@ -27,13 +30,14 @@ def clrscr():
 #Login Functions
 
 def user_login():
+    clrscr()
     print_banner("GROCERRY MANAGMENT SYSTEM")
     typing_effect("Welcome.....")
     print("\n")
     msg = """Hii Please select From given options:--
-1. Admin Login
-2. Sign In 
-3. Log In 
+1. Sign Up (if already a user)
+2. Sign In (for new account)
+3. Admin
 4. Exit
 """
     typing_effect(msg,0.06)
@@ -41,21 +45,19 @@ def user_login():
         opt = int(input(":"))
         if opt ==1:
             clear_screen()
-            admin_login()
+            signup()
             break
         elif opt == 2:
             clear_screen()
-            sign_in()
+            login()
             break
         elif opt ==3:
             clear_screen()
-            log_in()
+            admin()
             break
         elif opt == 4:
             typing_effect("Thanks for using our app ")
-            print("\n")
-            typing_effect("Press enter to exit")
-            input()
+            time.sleep(1)
             break
 
         else:
@@ -63,66 +65,8 @@ def user_login():
             print("\n")
 
 
-def admin_login():
-    print_banner("ADMIN")
-    typing_effect("Hii, Sir Please Enter you id and password for login")
-    print("\n")
-    print("This is for only testing purpose  id:- abc pass:-2345")
-    while True:
-        typing_effect("Enter your ID:---\n",0.06)
-        admin_id = input(":")
-        typing_effect("Enter your PASS:---\n",0.06)
-        admin_pass = input(":")
-        if admin_id == "abc" and admin_pass == "2345":
-            print("Welcome.., Press Enter to Continue")
-            input()
-            clear_screen()
-            admin_page()
-            break
-        else:
-            print("Wrong ID and PASS please try again ")
+def admin():
 
-def admin_page():
-    print_banner("ADMIN")
-    msg = '''OPT:- 
-1. View Users list
-2. Remove User
-3. Items List
-4. View Bills history
-5. Exit'''
-    typing_effect(msg,0.04)
-    while True:
-        opt = int(input("\n:"))
-
-        if opt == 1:
-            clear_screen()
-            print_banner("User List")
-            print("Pandu sql ki list print krvani h yha pe tuje iska bhi alg se simple page bna na h fuck... ")
-            #user_list_page()
-            input()
-        elif opt == 2:
-            clear_screen()
-            print_banner('Remove User')
-            print("yha pe bhai sql use hoga tuje user remove ka krna h iska bhi page bna na pde ga fuckk....")
-            #user_remove_page()
-            input()
-        elif opt ==3:
-            clear_screen()
-            print_banner("Items List")
-            print("Items list...")
-            input()
-            #item list()
-        elif opt==4:
-            clear_screen()
-            print_banner("Bills History")
-            input()
-            #bills_history page()
-        elif opt ==5:
-            clear_screen()
-            user_login()
-        else:
-            print("Please Enter Valid options..")
-        
 def sign_in ():
     clear_screen()
     print_banner("NEW   USER") 
@@ -264,4 +208,9 @@ def items():
         else:
             print("invalid input try again")
 
-
+def listusers():
+    c.execute("SELECT * FROM users")
+    user=c.fetchall()
+    print("username  mail ")
+    for users in user:
+        print(users[0], users[1])
