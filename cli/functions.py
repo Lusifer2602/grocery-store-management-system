@@ -65,51 +65,45 @@ def user_login():
             print("\n")
 
 
-def admin():
 
-def sign_in ():
-    clear_screen()
-    print_banner("NEW   USER") 
+def delitems(): #for admin
+    typing_effect("Enter 1 if you want to delete name by name\n"
+             "2 if you want to delete all the items at once : ")
+    delchoice=int(input(""))
+    if delchoice==1:
+        while True:
+            try:
+                tell=input("Enter the item to remove : ")
+                tell=tell.lower()
+                if tell=='q':
+                    break
+                c.execute("DELETE FROM items  WHERE item=?", (tell,))
+                con.commit()
+                continue
+            except Exception as e:
+                print("error :", e)
 
-    typing_effect("Press Enter to Continue.....", 0.05)
-    input()
-    clear_screen()
+    elif delchoice==2:
+        try:
+            typing_effect("All items shall be purged now . . . ")
+            c.execute("DELETE FROM items")
+            con.commit()
+            time.sleep(1)
+            typing_effect("All items have beeen deleted successfully\n")
+        except Exception as e:
+            print("error :", e)
+    else:
+        print("invalid input")
 
-    new_user_name = input("Enter your Name\n:")
-    while True:
-        new_user_email = input("Enter you Email \n:")
-        if new_user_email.endswith("@gmail.com") and len(new_user_email)>len("@gmail.com"):
-            break
-        else:
-                print("Please Enter Valid Email....")
-    while True:
-        new_user_pass = input("Enter your Password\n:")
-        if len(new_user_pass) <8:
-            print("Please Enter Atleast 8 Character ")
-        else:
-            break
-            clear_screen()
-    hii_msg = f'Hi {new_user_name}\n'
-    info = f"""
-    Name > {new_user_name} 
-    Email > {new_user_email}
-    Password > {new_user_pass} """
-
-    typing_effect(hii_msg,0.05)
-    typing_effect("Please Verify the Information:-",0.05)
-    typing_effect(info,0.06)
-    return [new_user_email,new_user_name,new_user_pass]
-
-
-
-
-def log_in():
-    print_banner("LOGIN")
-    typing_effect("Hi, Welcome Back..")
-
-    print("Please Enter Login Id & Pass")
-    input("Enter to exit for now")
-
+def showitems(): #for both users and admin
+    #indent here        
+    c.execute("SELECT * FROM items")
+    saman=c.fetchall()
+    print("\nITEM LIST\n"
+          "No.| Name | Price")
+    for rows in saman:
+        print(rows[0]," ", rows[1], rows[2])
+    print('\n')
 def additems():
     while True:
         try:
@@ -169,6 +163,7 @@ def showitems(): #for both users and admin
     for rows in saman:
         print(rows[0]," ", rows[1], rows[2])
     print('\n')
+
 
 #call this one for admin
 def items():
