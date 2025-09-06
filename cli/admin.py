@@ -5,7 +5,6 @@ import shutil
 import os
 import bcrypt as bcr
 import sqlite3 as sq
-
 from functions import * #shall import all the contets of fuctions here so i ca use to call them
 # clrscr() #add later when you actually call it in main file or testing
 
@@ -33,7 +32,7 @@ def adminaccess():
 
             if bcr.checkpw(adminpass.encode('utf-8'), passcheck):
                 while True:
-                    # clrscr()
+                    clrscr()
                     print_banner("Welcome Admin")
                     typing_effect("Choose what would you like to do today?"
                               "\n1. Items\n2. Users\n3. Bills\n4.Exit"
@@ -42,7 +41,7 @@ def adminaccess():
                         adminchoice=int(input(""))
 
                         if adminchoice==4:
-                            return #this return will exit both the loop and calling this function will nto fuck with the program's execution in later stages
+                            return #this return will exit both the loop and calling this function will into fuck with the program's execution in later stages
                         elif adminchoice==1:
                             items()
 
@@ -53,12 +52,12 @@ def adminaccess():
                             print("Here are bills from udrs")
                             #print all the bills here
                         else:
-                            print("invalid choice try againa")
+                            print("invalid choice try again")
                     except Exception as e:
                         print("ERROR : ", e)
                         typing_effect("Exiting now")
             else:
-                print("wrrong password admin sahab")
+                print("wrong password admin sahab")
                 time.sleep(0)
                 return False
         except Exception as e:
