@@ -42,7 +42,7 @@ def adminaccess():
                         adminchoice=int(input(""))
 
                         if adminchoice==4:
-                            exit(0)
+                            return #this return will exit both the loop and calling this function will nto fuck with the program's execution in later stages
                         elif adminchoice==1:
                             items()
 
