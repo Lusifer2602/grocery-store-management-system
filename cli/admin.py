@@ -32,7 +32,7 @@ def adminaccess():
 
             if bcr.checkpw(adminpass.encode('utf-8'), passcheck):
                 while True:
-                    clrscr()
+                    # clrscr()
                     print_banner("Welcome Admin")
                     typing_effect("Choose what would you like to do today?"
                               "\n1. Items\n2. Users\n3. Bills\n4.Exit"
@@ -49,7 +49,7 @@ def adminaccess():
                             listusers()
 
                         elif adminchoice==3:
-                            print("Here are bills from udrs")
+                            print("Here are bills from users")
                             #print all the bills here
                         else:
                             print("invalid choice try again")
@@ -62,7 +62,7 @@ def adminaccess():
                 return False
         except Exception as e:
             typing_effect("Invalid Credentials\nTry Again\n")
-            clrscr()
+            # clrscr()
             adminaccess()
             break
 adminaccess()
