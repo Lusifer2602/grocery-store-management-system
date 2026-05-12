@@ -24,6 +24,7 @@ def signup():
     name = input("Enter your Name : ")
     while True:
         mail = input("Enter you Email :").lower()
+        mail=mail.lower()
         if mail.endswith("@gmail.com") and len(mail)>len("@gmail.com"):
             break
         else:

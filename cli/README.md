@@ -1,57 +1,13 @@
-Grocery system
-System to manage customers, items with admin panel. login page got for admin and users, also for creating new user accounts
-Different privileges for different types of users (Admin, customer)
+# CLI based Grocery Management System
 
-Features for admin :
--Add/Delete Users
--Add/Delete products
--Search/View products
--Signout (navigate back to login page)
--Create Bills
-*View Carts of different users
--View bills of individual users
+## A terminal based app that a retailers and the customers can use to manage the selling and buying of their respective groceries
+> This app's goal is to help me understand the basics of how a cli based app can work
+> The language of choice is Python since that is what I wanna be proficient in for now but god knows if I decided to take a step further and build the whole thing in Cpp or C for the sake of memory. The database of choice I have taken is sqlite since my own pc happens to be limited on memory, although I am not gonna have a million concurrent users accessing this pc to test the app still, its my first playing around with a database so why not go with something thats much more easier to handle when I have my doubts.
 
-Features for Users :
-*create new profile that then appears to the admin
--View products
--Add to cart/Delete from cart
--Signout(navigate back to login page)
--Search/View products
--Checkout Cart items
--Instant buy an item
--View previous bills with items
+Trying to learn basic full stack development so wanted to build the first version on terminal and if possible, will build this like a full scale terminal based app as well as web based and maybe a desktop app.
+Idk I am just trying to learn stuff man.
+And I shall be documenting everything here so incase I end up abandoning the project in future I can come back and look back at it.
+First step is to understand the codebase all over again since its been **6 months** since I touched this baby at all.
 
-Common features for both :
--Search/List items
--Signout
-
-Automated stuff :
-- Billing
-- Viewing previous orders
-- Payment
-- Logging of information (checkin/out time, bill history, present/past users, system errors and breakdowns)
-
-
-Sytem related :
-Databse (users, carts, products, bills, login)
-
-Current goal :
-CLI based system
-
-After CLI?
-GUI based system
-Web based platform
-
-Tech?
-CLI - Python, mysql
-GUI - Python, mysql
-Web - PostgreSQL, js, html, cs, python (Home Server)
-
-CLI update
-we were going the functional programming approach but it turns out I had forgotten you can't store values inside a function outside of it
-Earlier we were thinking we could just create functions for each step and call them one by one but it turns out this is not the case (BECAUSE I FUCKING FORGOT)
-So as it turns out i will now be coding the entire shit into one file without calling functions for each part, I wish that was a thing but anyways lol
-
-
-Excalidraw Session link - https://excalidraw.com/#room=45a70e91aaec85403b82,mCJKopL4Wfu7WOkEqCEJvw
-Issue:- Already a customre
+### This is Day 1
+We are gonna go through the first, i.e. signup page to see how the signup process works and interacts with the database. I remember adding encryption to the passwords so even if the database is accessed no one can actually edit someone else's information. After this is done I will try to build a system that ensures everyone has a unique username and if repeated then they are prompted that the following username already exists to prevent clashes.
